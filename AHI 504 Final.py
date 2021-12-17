@@ -23,3 +23,6 @@ connection_string = f'mysql+pymysql://{MYSQL_USER}:{MYSQL_PASSWORD}@{MYSQL_HOSTN
 engine = create_engine(connection_string)
 
 print (engine.table_names())
+
+csvfile = pd.read_csv('/Users/samanthabenjamin/Downloads/H1N1_Flu_Vaccines.csv')
+csvfile.to_sql('h1n1_data', con=engine, if_exists='append')
